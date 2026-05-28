@@ -18,8 +18,10 @@
 
 ### 5. Completed Tasks
 - **Updated Conversion_Tracking.md**: Wrote detailed, premium-quality guidelines for integrating the `lead_form_success` custom event in Google Tag Manager. Described the entire pipeline from `dataLayer.push` in Client JS to Google Ads servers.
-- **Added Google Ads Configuration Mapping**: Included step-by-step setup guides to extract `Conversion ID` and `Conversion Label` from Google Ads, configure the **Conversion Linker** tag, create a GTM **Custom Event Trigger**, and wire them up securely.
+- **Added Google Ads Configuration Mapping**: Included step-by-step setup guides to extract `Conversion ID` and `Conversion Label` from Google Ads, configure the **Conversion Linker** tag, and create a GTM **Custom Event Trigger**.
+- **Simplified GTM Setup Flow**: Skipped the explicit GTM Variable registration step (formerly Bước 3.1) to streamline the setup for students, updating all references and step numbers (now 3.1 - 3.4).
 - **Integrated Mermaid Sequence Diagram**: Created an aesthetic visual sequence diagram mapping the live data flow of the `lead_form_success` conversion trigger.
 - **Synchronized checklists**: Updated `LandingPage_Skills.md` to reference the new conversion guidelines.
-- **Workspace Clean Commits**: Staged and committed the documentation updates locally (`241dacd`) without executing `git push` to remain compliant with security constraints.
+- **Workspace Clean Commits**: Staged and committed the documentation updates locally (`27e7fb7`) without executing `git push` to remain compliant with security constraints.
+
 
