@@ -78,11 +78,46 @@ if (response.status === 200 && result.success) {
 }
 ```
 
-### 🎯 Cách bắt sự kiện này trên trình quản lý Google Tag Manager:
-Khi bạn hoặc chuyên viên Marketing đăng nhập vào tài khoản GTM để cấu hình sự kiện chuyển đổi cho quảng cáo Facebook/Google:
-1. **Tạo Trình kích hoạt (Trigger)**: Chọn loại trình kích hoạt là **Sự kiện Tùy chỉnh (Custom Event)**.
-2. **Tên Sự kiện (Event Name)**: Nhập chính xác tên sự kiện đã khai báo trong code là `lead_form_success`.
-3. **Liên kết Thẻ (Tag)**: Liên kết trigger này với thẻ pixel tương ứng (ví dụ: *Facebook Pixel Lead Tag*, *Google Ads Conversion Tag*) để tự động tối ưu hóa tệp khách hàng tiềm năng.
+### 🎯 3. Hướng Dẫn Từng Bước Cấu Hình Google Tag Manager (GTM) Để Bắt Sự Kiện `lead_form_success` & Gửi Về Google Ads
+
+Để đo lường chuyển đổi và gửi dữ liệu về Google Ads thành công, học viên cần cấu hình **Trình kích hoạt (Trigger)** và **Thẻ (Tag)** trong trang quản trị GTM theo các bước chuẩn hóa sau:
+
+#### 📌 Bước 3.1: Tạo Trình Kích Hoạt Bắt Sự Kiện (Custom Event Trigger)
+Trình kích hoạt này đóng vai trò lắng nghe khi nào sự kiện `lead_form_success` được bắn từ tệp `main.js` lên `dataLayer`.
+
+1. Đăng nhập vào [Google Tag Manager](https://tagmanager.google.com/).
+2. Chọn mục **Trình kích hoạt (Triggers)** ở thanh menu bên trái -> Nhấp **Mới (New)**.
+3. Đặt tên Trình kích hoạt: `Custom Event - Lead Form Success`.
+4. Nhấp vào vùng **Cấu hình trình kích hoạt (Trigger Configuration)** -> Chọn loại trình kích hoạt là **Sự kiện tùy chỉnh (Custom Event)**.
+5. Tại ô **Tên sự kiện (Event name)**: Nhập chính xác là `lead_form_success`.
+6. Tại phần *Trình kích hoạt này kích hoạt trên*, chọn **Tất cả sự kiện tùy chỉnh (All Custom Events)**.
+7. Nhấp **Lưu (Save)**.
+
+#### 📌 Bước 3.2: Tạo Thẻ Liên Kết Chuyển Đổi (Conversion Linker Tag - Bắt Buộc)
+Thẻ liên kết chuyển đổi giúp lưu trữ dữ liệu lượt nhấp trong cookie của bên thứ nhất, đảm bảo việc theo dõi chuyển đổi hoạt động chính xác trên mọi trình duyệt (đặc biệt là Safari/iOS).
+
+1. Chọn mục **Thẻ (Tags)** ở menu bên trái -> Nhấp **Mới (New)**.
+2. Đặt tên Thẻ: `Conversion Linker`.
+3. Nhấp vào vùng **Cấu hình thẻ (Tag Configuration)** -> Chọn loại thẻ là **Liên kết chuyển đổi (Conversion Linker)**.
+4. Tại phần **Kích hoạt (Triggering)**: Chọn trình kích hoạt mặc định là **Initialization - All Pages** (hoặc **All Pages**).
+5. Nhấp **Lưu (Save)**.
+
+#### 📌 Bước 3.3: Tạo Thẻ Theo Dõi Chuyển Đổi Google Ads (Google Ads Conversion Tracking)
+Thẻ này sẽ lấy thông tin chuyển đổi gửi thẳng về tài khoản Google Ads của học viên mỗi khi form được gửi thành công.
+
+1. Chọn mục **Thẻ (Tags)** ở menu bên trái -> Nhấp **Mới (New)**.
+2. Đặt tên Thẻ: `Google Ads - Lead Conversion`.
+3. Nhấp vào vùng **Cấu hình thẻ (Tag Configuration)** -> Chọn loại thẻ là **Theo dõi chuyển đổi của Google Ads (Google Ads Conversion Tracking)**.
+4. Nhập các thông số cấu hình bắt buộc từ tài khoản Google Ads của bạn:
+   - **ID chuyển đổi (Conversion ID)**: Nhập dãy số Conversion ID được cấp trong tài khoản Google Ads (Ví dụ: `123456789`).
+   - **Nhãn chuyển đổi (Conversion Label)**: Nhập chuỗi ký tự nhãn chuyển đổi tương ứng của hành động gửi form (Ví dụ: `AbCdEfGhIjKlMnOpQrStUv`).
+     *(Mẹo: Học viên có thể lấy 2 thông số này trong tài khoản Google Ads bằng cách vào mục **Công cụ và cài đặt -> Lượt chuyển đổi -> Chọn hành động chuyển đổi -> Thiết lập thẻ -> Sử dụng Trình quản lý thẻ của Google**).*
+5. Tại phần **Kích hoạt (Triggering)**: Nhấp chọn trình kích hoạt **Custom Event - Lead Form Success** đã tạo ở Bước 3.1.
+6. Nhấp **Lưu (Save)**.
+
+#### 📌 Bước 3.4: Xuất Bản Để Kích Hoạt Cấu Hình (Publish)
+1. Nhấp nút **Gửi (Submit)** ở góc trên bên phải màn hình GTM.
+2. Nhập tên phiên bản (ví dụ: `Tích hợp Google Ads Lead Conversion`) -> Nhấp **Xuất bản (Publish)** để đưa cấu hình vào hoạt động thực tế.
 
 ---
 
