@@ -119,25 +119,7 @@ Khi sự kiện `lead_form_success` được kích hoạt, các tham số sau s�
 
 ---
 
-#### 📌 Bước 3.1: Đăng Ký Biến Dữ Liệu Trên GTM (Data Layer Variables)
-Để GTM hiểu và tái sử dụng được các thông tin đi kèm như `form_id` hay `conversion_value`, ta cần khai báo chúng thành các **Biến (Variables)**:
-
-1. Đăng nhập vào [Google Tag Manager Dashboard](https://tagmanager.google.com/).
-2. Truy cập vào mục **Biến (Variables)** ở thanh bên trái -> Tại phần **Biến do người dùng xác định (User-Defined Variables)**, nhấp chọn **Mới (New)**.
-3. Thiết lập biến thứ nhất:
-   - **Tên biến**: `dlv - form_id`
-   - **Cấu hình biến**: Chọn loại **Biến lớp dữ liệu (Data Layer Variable)**.
-   - **Tên biến lớp dữ liệu**: Nhập chính xác là `form_id`.
-   - Nhấp **Lưu (Save)**.
-4. Thiết lập biến thứ hai (tùy chọn):
-   - **Tên biến**: `dlv - conversion_value`
-   - **Cấu hình biến**: Chọn loại **Biến lớp dữ liệu (Data Layer Variable)**.
-   - **Tên biến lớp dữ liệu**: Nhập chính xác là `conversion_value`.
-   - Nhấp **Lưu (Save)**.
-
----
-
-#### 📌 Bước 3.2: Tạo Trình Kích Hoạt Sự Kiện Tùy Chỉnh (Custom Event Trigger)
+#### 📌 Bước 3.1: Tạo Trình Kích Hoạt Sự Kiện Tùy Chỉnh (Custom Event Trigger)
 Trình kích hoạt này đóng vai trò "lắng nghe" và bắt trọn khoảnh khắc sự kiện `lead_form_success` xuất hiện.
 
 1. Chọn mục **Trình kích hoạt (Triggers)** ở menu bên trái -> Nhấp **Mới (New)**.
@@ -149,7 +131,7 @@ Trình kích hoạt này đóng vai trò "lắng nghe" và bắt trọn khoảnh
 
 ---
 
-#### 📌 Bước 3.3: Tạo Thẻ Liên Kết Chuyển Đổi (Conversion Linker - Bắt Buộc 100%)
+#### 📌 Bước 3.2: Tạo Thẻ Liên Kết Chuyển Đổi (Conversion Linker - Bắt Buộc 100%)
 > [!IMPORTANT]
 > **TẠI SAO PHẢI CÓ THẺ LIÊN KẾT CHUYỂN ĐỔI?**
 > Từ hệ điều hành iOS 14+ và trình duyệt Safari, Apple áp dụng cơ chế bảo mật ITP (Intelligent Tracking Prevention) chặn cookies của bên thứ ba. Thẻ **Conversion Linker** giúp lưu trữ các tham số nhấp chuột quảng cáo (gclid, dclid...) vào cookie của bên thứ nhất (first-party cookie) trực tiếp trên tên miền của bạn, giúp bảo toàn dữ liệu đo lường chính xác tuyệt đối.
@@ -163,7 +145,7 @@ Trình kích hoạt này đóng vai trò "lắng nghe" và bắt trọn khoảnh
 
 ---
 
-#### 📌 Bước 3.4: Tạo Thẻ Chuyển Đổi Google Ads (Google Ads Conversion Tracking)
+#### 📌 Bước 3.3: Tạo Thẻ Chuyển Đổi Google Ads (Google Ads Conversion Tracking)
 Thẻ này có nhiệm vụ đóng gói dữ liệu và gửi thông tin chuyển đổi về đúng tài khoản Google Ads của bạn.
 
 1. Chọn mục **Thẻ (Tags)** ở menu bên trái -> Nhấp **Mới (New)**.
@@ -172,7 +154,7 @@ Thẻ này có nhiệm vụ đóng gói dữ liệu và gửi thông tin chuyể
 4. Điền các tham số kết nối từ tài khoản Google Ads:
    - **ID chuyển đổi (Conversion ID)**: Nhập dãy số Conversion ID được cung cấp trong tài khoản Google Ads (Ví dụ: `1122334455`).
    - **Nhãn chuyển đổi (Conversion Label)**: Nhập chuỗi mã ký tự nhãn chuyển đổi tương ứng (Ví dụ: `xYz_AbCdEfGhIjKlMnOp`).
-   - **Giá trị chuyển đổi (Conversion Value)**: Nhấp vào biểu tượng dấu cộng `+` bên cạnh ô nhập -> Chọn biến `dlv - conversion_value` đã tạo ở Bước 3.1.
+   - **Giá trị chuyển đổi (Conversion Value)**: Nhập một số cụ thể đại diện cho giá trị của một lượt gửi form thành công (Ví dụ: `100000` cho 100k VNĐ), hoặc để trống nếu không muốn tính doanh thu quảng cáo tĩnh.
    - **Mã tiền tệ (Currency Code)**: Nhập mã tiền tệ tương ứng, ví dụ: `VND` hoặc `USD`.
    
    > [!TIP]
@@ -183,12 +165,12 @@ Thẻ này có nhiệm vụ đóng gói dữ liệu và gửi thông tin chuyể
    > 4. Nhấp vào tab **Thiết lập thẻ (Tag Setup)** -> Chọn **Sử dụng Trình quản lý thẻ của Google (Use Google Tag Manager)**.
    > 5. Sao chép chính xác hai thông số **ID chuyển đổi (Conversion ID)** và **Nhãn chuyển đổi (Conversion Label)** được hiển thị trên màn hình.
 
-5. Tại phần **Kích hoạt (Triggering)**: Nhấp chọn trình kích hoạt **Custom Event - Lead Form Success** đã tạo ở Bước 3.2.
+5. Tại phần **Kích hoạt (Triggering)**: Nhấp chọn trình kích hoạt **Custom Event - Lead Form Success** đã tạo ở Bước 3.1.
 6. Nhấp **Lưu (Save)**.
 
 ---
 
-#### 📌 Bước 3.5: Kiểm Tra Trong Chế Độ Xem Trước (Preview & Debug) & Xuất Bản
+#### 📌 Bước 3.4: Kiểm Tra Trong Chế Độ Xem Trước (Preview & Debug) & Xuất Bản
 Sau khi đã thiết lập xong, học viên bắt buộc phải kiểm tra kỹ thuật trước khi chạy quảng cáo thực tế:
 
 1. Tại màn hình GTM, nhấp nút **Xem trước (Preview)** ở góc phải trên.
@@ -197,7 +179,7 @@ Sau khi đã thiết lập xong, học viên bắt buộc phải kiểm tra kỹ
 4. Quay lại cửa sổ **Tag Assistant**:
    - Ở cột danh sách sự kiện bên trái, kiểm tra sự xuất hiện của sự kiện `lead_form_success`.
    - Nhấp vào sự kiện đó và quan sát ở phần **Tags Fired**: Thẻ `Google Ads - Lead Conversion` phải hiển thị trạng thái **Succeeded (Fired)**.
-   - Nhấp vào tab **Data Layer** để kiểm tra các giá trị truyền lên như `form_id` hay `conversion_value` có hiển thị đúng hay không.
+   - Nhấp vào tab **Data Layer** để kiểm tra dữ liệu lớp `lead_form_success` có hiển thị đúng cấu trúc không.
 5. Nếu mọi thứ hoạt động hoàn hảo, quay lại cửa sổ Google Tag Manager chính, nhấp nút **Gửi (Submit)** -> Điền tên phiên bản (Ví dụ: `Tích hợp Google Ads Tracking - Lead Form Success`) -> Nhấp **Xuất bản (Publish)** để cập nhật cấu hình lên phiên bản hoạt động thực tế.
 
 ---
