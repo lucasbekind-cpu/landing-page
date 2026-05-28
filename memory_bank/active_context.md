@@ -1,11 +1,12 @@
 # Active Context - Student Landing Page Workspace
 
 ## 🎯 Current Focus
-We have completed the implementation of the **5-Step Learning Flow** for the Git repository template, successfully drafted and integrated **Step 5 (Triển khai - Deploy)**, fixed the YouTube Error 153 configuration issue in **The Smile** project by implementing `http://localhost:8000` Python server local preview, and created the `.agents/workflows/` automated load/save context files.
+We have completed the integration of **Google Tag Manager & Google Ads Conversion Tracking** guidelines. Specifically, we updated `Conversion_Tracking.md` to include a full, premium walkthrough of creating custom triggers (`lead_form_success`), setting up GTM Data Layer Variables, configuring the Conversion Linker tag, and mapping the Google Ads Conversion Tag using **Conversion ID** and **Conversion Label**. We also synchronized the checklist in `LandingPage_Skills.md` and committed the changes locally.
 
 ---
 
 ## 📝 Active Files & References
+- **Conversion Tracking Guide**: [Conversion_Tracking.md](file:///Volumes/SSD-Lucas/Trainning/Landing_Page/Skills/Conversion_Tracking.md)
 - **Master Guidelines**: [LandingPage_Skills.md](file:///Volumes/SSD-Lucas/Trainning/Landing_Page/Skills/LandingPage_Skills.md)
 - **Technical Specs**: [detail_spec.md](file:///Volumes/SSD-Lucas/Trainning/Landing_Page/detail_spec.md)
 - **Student Guides**:
@@ -24,6 +25,6 @@ We have completed the implementation of the **5-Step Learning Flow** for the Git
 ---
 
 ## 🚀 Next Immediate Steps
-1. The student or the next AI agent session can invoke `/load_context` to restore memory.
-2. Students can clone the workspace to create new landing page projects inside `projects/` and start from `steps/step1.md`.
-3. Test any form integrations or customize themes (e.g., trying Option A Dark Mode).
+1. **GitHub Deploy**: Wait for direct user requests before executing a `git push` to upload local commits to GitHub.
+2. **Student Practice**: Instruct students on GTM tracking setup, allowing them to test the AJAX trigger `lead_form_success` in local Preview Mode on `http://localhost:8000`.
+
