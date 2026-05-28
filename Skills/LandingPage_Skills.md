@@ -217,7 +217,9 @@ A premium landing page should be structured around these 8 critical sections to 
 ### Conversion Tracking & Google Tag Manager Integration (GTM Quality Gate)
 - [ ] **GTM ID Input Quality Gate**: Khi có yêu cầu cài đặt Google Tag Manager, AI Agent **bắt buộc** phải hướng dẫn và yêu cầu học viên khai báo GTM Container ID (Ví dụ: `GTM-KNKBQR6H`) trong file `.env` dưới dạng biến `gtm_id=GTM-XXXXXXXX`. Tuyệt đối **không** được tự ý điền mã GTM ngẫu nhiên hoặc mặc định.
 - [ ] **GTM Embeds**: Nhúng mã JavaScript GTM ở vị trí cao nhất có thể trong thẻ `<head>` và mã noscript GTM ngay sau thẻ mở `<body>` trong file `index.html` sử dụng đúng biến trích xuất từ `.env`.
-- [ ] **dataLayer Custom Events**: Tích hợp lệnh `window.dataLayer.push({ 'event': 'lead_form_success' })` tại sự kiện gửi form AJAX thành công trong `main.js` để đẩy tín hiệu chuyển đổi về GTM, GA4, Meta Pixel, và Google Ads.
+- [ ] **dataLayer Custom Events**: Tích hợp lệnh `window.dataLayer.push({ 'event': 'lead_form_success', 'form_id': '...', 'conversion_value': ... })` tại sự kiện gửi form AJAX thành công trong `main.js`.
+- [ ] **Google Ads Conversion Mapping**: Hướng dẫn chi tiết cách cấu hình **Conversion Linker**, tạo **Custom Event Trigger**, và cài đặt **Thẻ Google Ads Conversion Tracking** sử dụng chính xác **Conversion ID** và **Conversion Label** nhận được từ Google Ads để đo lường và tối ưu hóa quảng cáo (Xem chi tiết tại [Skills/Conversion_Tracking.md](file:///Volumes/SSD-Lucas/Trainning/Landing_Page/Skills/Conversion_Tracking.md)).
+
 
 ---
 
