@@ -144,13 +144,12 @@ Không gian làm việc này được tích hợp cơ chế tự động khôi p
   - *Khi nào dùng*: Khi bạn chuẩn bị kết thúc phiên làm việc dài hoặc muốn đóng băng trạng thái để chia sẻ cho phiên sau.
   - *Hành vi*: AI sẽ tổng hợp kết quả, cập nhật tệp `active_context.md` để ghi chú các bước tiếp theo, append lịch sử chi tiết vào nhật ký `daily_logs.md` và hướng dẫn bạn chạy lệnh Git đồng bộ an toàn lên GitHub.
 
----
-
 ## 🛡️ Lá Chắn Bảo Mật Thông Tin (Security Shields)
 
 Để đảm bảo các thông tin nhạy cảm của bạn không bao giờ bị rò rỉ ra thế giới bên ngoài:
 - **Tệp `.gitignore`**: Đã được thiết lập sẵn tại thư mục gốc để tự động chặn các file `.env` chứa token bí mật không bị commit vào Git.
 - **Git cục bộ**: Khi push code lên GitHub, AI sẽ hướng dẫn bạn thiết lập cấu hình Git cục bộ (`git config --local user.name` và `git config --local user.email`) để tránh lộ thông tin tài khoản cá nhân trên lịch sử commit chung.
+- **Quy tắc Đẩy code lên GitHub (Deploy Note)**: AI Agent **tuyệt đối không tự ý đẩy (push) mã nguồn lên GitHub** nếu **chưa nhận được yêu cầu cụ thể và trực tiếp từ học viên** để đảm bảo học viên luôn kiểm soát hoàn toàn lịch sử Git của dự án.
 
 ---
 

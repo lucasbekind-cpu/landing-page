@@ -46,6 +46,10 @@ GitHub Pages cho phép bạn lưu trữ trang tĩnh miễn phí trực tiếp t�
    - F5 lại trang, GitHub sẽ cung cấp cho bạn một đường dẫn URL dạng: `https://[ten-tai-khoan-github].github.io/[ten-repository]/projects/the-smile/`
    - *Ưu điểm tuyệt đối*: Mỗi khi bạn chỉnh sửa CSS/HTML trên máy tính và chạy lệnh `git commit` & `git push`, website trên internet của bạn sẽ **tự động cập nhật** sau 30 giây!
 
+> [!CAUTION]
+> **QUY TẮC BẢO MẬT & ĐẨY CODE LÊN GITHUB (DEPLOY NOTE):**
+> AI Agent tuyệt đối **không được tự động đẩy (push) mã nguồn lên GitHub** hoặc thực hiện các lệnh Git push nếu **chưa nhận được yêu cầu cụ thể và trực tiếp** từ học viên. Điều này nhằm tránh các xung đột mã nguồn ngoài ý muốn và giữ toàn quyền kiểm soát kho lưu trữ cho học viên.
+
 ---
 
 ## 🎯 Cổng Đăng Ký Web3Forms của bạn vẫn hoạt động chứ?

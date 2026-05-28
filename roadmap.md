@@ -20,4 +20,7 @@ Sau đó mở trình duyệt lên để xem kết quả
 Lưu ý chung: tất cả phải để vào 1 thư mục con trong thư mục projects
 
 ---
-Phase 2: Tính năng conversion tracking
+Phase 2: Tính năng conversion tracking & Deploy Note
+- Đọc tệp `.env` trích xuất `gtm_id` để nhúng an toàn container GTM.
+- Bắn sự kiện chuyển đổi (Custom Event): Sau khi người dùng gửi form thành công qua AJAX, kích hoạt lệnh `window.dataLayer.push({ 'event': 'lead_form_success' })` trong `main.js` để GTM có thể bắt được và theo dõi lượt chuyển đổi.
+- Quy tắc Deploy lên GitHub: AI Agent **chỉ thực hiện việc đẩy (push) mã nguồn lên kho lưu trữ GitHub khi học viên/người dùng yêu cầu cụ thể**.

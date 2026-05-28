@@ -161,6 +161,8 @@ graph TD
      ```
 3. **Mã hóa nhúng an toàn**:
    - Sử dụng định dạng tham số `?si=...` và `referrerpolicy="strict-origin-when-cross-origin"` trên tất cả các tài nguyên nhúng bên ngoài (như YouTube) để bảo vệ quyền riêng tư người dùng.
+4. **Quy tắc Đẩy code lên GitHub (Push Request Only)**:
+   - AI Agent **tuyệt đối không** tự ý chạy các lệnh `git push` để đẩy mã nguồn lên GitHub nếu **chưa nhận được yêu cầu cụ thể và trực tiếp** từ học viên. Học viên có toàn quyền kiểm soát lịch sử commit của kho lưu trữ.
 
 ---
 
