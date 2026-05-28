@@ -6,9 +6,22 @@ Chào mừng bạn đến với tài liệu hướng dẫn **Đo lường Chuy�
 
 ---
 
-## 🛠️ 1. Hướng Dẫn Cài Đặt Trực Tiếp Google Tag Manager (GTM-KNKBQR6H)
+## 🛠️ 1. Quy Tắc Yêu Cầu Nhập Mã GTM (GTM ID Input Quality Gate)
 
-Hãy mở tệp tin cấu trúc giao diện chính của bạn (`index.html`) và tiến hành nhúng hai đoạn mã tiêu chuẩn của container **GTM-KNKBQR6H** theo đúng hai vị trí quy chuẩn dưới đây:
+Để đảm bảo hệ thống đo lường hoạt động chính xác với đúng tài khoản của học viên, AI Agent **bắt buộc** phải tuân thủ quy tắc kiểm soát chất lượng sau:
+
+> [!WARNING]
+> **CỔNG KIỂM SOÁT CHẤT LƯỢNG GTM (GTM QUALITY GATE):**
+> 1. **Cấm tự đoán hoặc tự điền GTM ID**: AI Agent tuyệt đối **không** được tự ý điền mã GTM ngẫu nhiên hoặc mặc định vào dự án khi học viên yêu cầu cài đặt.
+> 2. **Yêu cầu cung cấp hoặc đọc từ `.env`**: AI Agent phải yêu cầu học viên khai báo mã GTM Container ID (Ví dụ: `GTM-KNKBQR6H`) trong file `.env` ở thư mục gốc dưới biến `gtm_id=GTM-XXXXXXXX`.
+> 3. **Tự động trích xuất**: AI Agent sẽ đọc file `.env`, trích xuất giá trị `gtm_id` và thay thế vào các đoạn mã nhúng tương ứng trong `index.html`.
+> 4. **Dừng lại nếu thiếu**: Nếu file `.env` chưa có cấu hình `gtm_id`, AI Agent phải dừng quy trình cài đặt và hiển thị yêu cầu: *"Vui lòng bổ sung biến `gtm_id=Mã-GTM-Của-Bạn` (Ví dụ: `gtm_id=GTM-KNKBQR6H`) vào file `.env` để tôi tiến hành tích hợp tự động!"*
+
+---
+
+## 🛠️ 2. Hướng Dẫn Cài Đặt Trực Tiếp Google Tag Manager
+
+Hãy mở tệp tin cấu trúc giao diện chính của bạn (`index.html`) và tiến hành nhúng hai đoạn mã tiêu chuẩn của container (sử dụng mã GTM trích xuất từ `.env`, ví dụ: **GTM-KNKBQR6H**) theo đúng hai vị trí quy chuẩn dưới đây:
 
 ### Vị trí 1: Nhúng vào thẻ `<head>` (Càng cao càng tốt)
 Đoạn mã JavaScript này giúp kích hoạt GTM ngay khi trang web bắt đầu tải để ghi nhận lượt truy cập của người dùng mà không làm chậm giao diện.

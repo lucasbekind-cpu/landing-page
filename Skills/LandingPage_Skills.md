@@ -214,6 +214,11 @@ A premium landing page should be structured around these 8 critical sections to 
 - [ ] **FormSubmit / API Action**: Secure and ready to process form details using a direct form service (e.g. `action="https://formsubmit.co/your-email"`).
 - [ ] **Form Styling**: Inputs must have border-radius, background transparency, clear labels, and change border colors upon active focus.
 
+### Conversion Tracking & Google Tag Manager Integration (GTM Quality Gate)
+- [ ] **GTM ID Input Quality Gate**: Khi có yêu cầu cài đặt Google Tag Manager, AI Agent **bắt buộc** phải hướng dẫn và yêu cầu học viên khai báo GTM Container ID (Ví dụ: `GTM-KNKBQR6H`) trong file `.env` dưới dạng biến `gtm_id=GTM-XXXXXXXX`. Tuyệt đối **không** được tự ý điền mã GTM ngẫu nhiên hoặc mặc định.
+- [ ] **GTM Embeds**: Nhúng mã JavaScript GTM ở vị trí cao nhất có thể trong thẻ `<head>` và mã noscript GTM ngay sau thẻ mở `<body>` trong file `index.html` sử dụng đúng biến trích xuất từ `.env`.
+- [ ] **dataLayer Custom Events**: Tích hợp lệnh `window.dataLayer.push({ 'event': 'lead_form_success' })` tại sự kiện gửi form AJAX thành công trong `main.js` để đẩy tín hiệu chuyển đổi về GTM, GA4, Meta Pixel, và Google Ads.
+
 ---
 
 ## 3. Premium Interactive Micro-Animations (CSS/JS)
