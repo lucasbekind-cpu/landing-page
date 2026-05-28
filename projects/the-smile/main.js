@@ -169,6 +169,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.status === 200 && result.success) {
           // Success behavior: custom visual toast notification
           showToast();
+          
+          // Google Tag Manager custom lead conversion event
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'event': 'lead_form_success',
+            'form_id': 'contact-form',
+            'conversion_value': 100000
+          });
+
           contactForm.reset();
         } else {
           // Failure response from API

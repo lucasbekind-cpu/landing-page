@@ -18,3 +18,6 @@ Step 4: Sau khi có nội dung và design System, tiến hành code 1 landing pa
 Sau đó mở trình duyệt lên để xem kết quả
 
 Lưu ý chung: tất cả phải để vào 1 thư mục con trong thư mục projects
+
+---
+Phase 2: Tính năng conversion tracking
